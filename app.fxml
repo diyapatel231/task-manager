@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<GridPane alignment="center" hgap="10" vgap="10" xmlns:fx="http://javafx.com/fxml/1" fx:controller="TaskManagerController">
+    <Label text="Task Title:" GridPane.rowIndex="0" GridPane.columnIndex="0" />
+    <TextField fx:id="titleField" promptText="Enter task title" GridPane.rowIndex="0" GridPane.columnIndex="1" />
+
+    <Label text="Description:" GridPane.rowIndex="1" GridPane.columnIndex="0" />
+    <TextArea fx:id="descriptionField" promptText="Enter task description" GridPane.rowIndex="1" GridPane.columnIndex="1" />
+
+    <Label text="Priority:" GridPane.rowIndex="2" GridPane.columnIndex="0" />
+    <ComboBox fx:id="priorityComboBox" GridPane.rowIndex="2" GridPane.columnIndex="1">
+        <items>
+            <FXCollections fx:factory="observableArrayList">
+                <String fx:value="High" />
+                <String fx:value="Medium" />
+                <String fx:value="Low" />
+            </FXCollections>
+        </items>
+    </ComboBox>
+
+    <Label text="Due Date:" GridPane.rowIndex="3" GridPane.columnIndex="0" />
+    <DatePicker fx:id="dueDatePicker" GridPane.rowIndex="3" GridPane.columnIndex="1" />
+
+    <Button text="Add Task" onAction="#handleAddTask" GridPane.rowIndex="4" GridPane.columnIndex="1" />
+    
+    <TableView fx:id="taskTable" GridPane.rowIndex="5" GridPane.columnIndexSpan="2">
+        <columns>
+            <TableColumn text="Title" fx:id="titleColumn" />
+            <TableColumn text="Priority" fx:id="priorityColumn" />
+            <TableColumn text="Due Date" fx:id="dueDateColumn" />
+        </columns>
+    </TableView>
+</GridPane>
